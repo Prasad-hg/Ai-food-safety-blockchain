@@ -17,7 +17,10 @@ st.set_page_config(
 )
 
 # --- Load Model ---
-model = joblib.load('freshness_predictor_model.pkl')
+data = joblib.load('freshness_predictor_model.pkl')
+model = data['model']
+label_encoder = data['label_encoder']
+
 label_mapping = {0: "Fresh", 1: "Semi-Spoiled", 2: "Spoiled"}
 
 # --- Session State Init ---
